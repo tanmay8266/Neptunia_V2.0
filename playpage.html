@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cssstyling.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+        } 
+      else {
+        x.className = "topnav";
+        }
+      }
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBwsAGzY7oZr-zoQJj1GkqFKcNHbL3p7V0",
+    authDomain: "video-stream-bfc99.firebaseapp.com",
+    databaseURL: "https://video-stream-bfc99.firebaseio.com",
+    projectId: "video-stream-bfc99",
+    storageBucket: "video-stream-bfc99.appspot.com",
+    messagingSenderId: "63189921909"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- <script type="text/javascript" src="logout.js"></script> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <title>Enjoy your video!</title> 
+</head>
+<body class="playbody">
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top navbar-default">
+
+          <a class="navbar-brand" href="index.html">Neptunia</a>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" onkeydown = "if (event.keyCode == 13){heh();}" aria-label="Search">
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" id="log-btn" type="button">Logout</button> -->
+          <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navb"> -->
+                <ul class="navbar-nav mr-auto">
+      </ul>
+      <!-- <ul class="inline my-2 my-lg-0">
+          <li class="nav-item dropdown" style="float: right">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="https://img.icons8.com/color/48/000000/administrator-male.png" style="width:24px;height:24px;">
+              </a>
+              <div class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
+                <a class="dropdown-item text-white bg-dark" href="#">Profile</a>
+                <a id="log-btn" class="dropdown-item text-white bg-dark" href="#">Logout</a>
+            </li>
+      </ul> -->
+      
+  </nav>
+
+    <!--<img src="search.png" alt="magnifying glass">
+    <a href="#fa fa-search"><i class="fa fa-search" style="font-size: 25px; margin-top: 10px;"></i></a>-->
+
+    <script type="text/javascript">
+      function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+        } 
+      else {
+        x.className = "topnav";
+        }
+      }
+      function getTitle(videoid){
+            var xhttp1= new XMLHttpRequest();
+            xhttp1.onreadystatechange = function(){
+                if(this.readyState==4 && this.status== 200){
+                    var myob=JSON.parse(this.responseText);
+                    var haathi=myob.items[0].snippet.title;
+                    document.getElementById('para').innerHTML=haathi;
+        }
+    };
+    xhttp1.open("GET",`https://www.googleapis.com/youtube/v3/videos?id=${videoid}&key=AIzaSyDdD_Q_6M_3t4fJ3-yLo5reUqr9w1Nqlq0&part=snippet`,true);
+            xhttp1.send();
+        }
+        function abc(){
+    var queryString=decodeURIComponent(window.location.search);
+  queryString = queryString.substring(1);
+  q=queryString.split("=");
+  document.getElementById('play').src=`https://www.youtube.com/embed/${q[1]}?autoplay=1`;
+  getTitle(q[1]);
+  }
+  window.onload=abc;
+  function heh()
+{
+  search1=document.getElementById("search").value;
+   var querystring= "?query=" + search1;
+   window.location.href="aftersearch.html" + querystring;
+   
+}
+
+    </script>
+    <div class="bigdiv" style="width:100%;height:50%">
+    <div class="resp-container" id="play1" style="height: 100%">
+    <iframe id="play" width="100%" height = "100%"src="https://www.youtube.com/embed/?autoplay=1" allow="autoplay" allow="encrypted-media" allowFullScreen="true"></iframe>
+</div>
+<div class="resp-container2">
+  <p id="para"></p>
+</div>
+</div>
+<br>
+<hr>
+<br>
+<button class="btn btn-outline-success my-2 my-sm-0" id="down-btn" type="button">Download</button>
+<button class="btn btn-outline-secondary my-2 my-sm-0" id="atw-btn" type="button">Add to Watchlist</button>
+</body>
+<script>
+$("#down-btn").bind("click",function(event){
+        event.preventDefault();
+        window.location.href = `http://www.ssyoutube.com/watch?v=${q[1]}`;
+      })
+      </script>
+<script>
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+  } else {
+    // No user is signed in.
+  }
+});
+
+</script>
+
+<script>
+	firebase.auth().onAuthStateChanged(function (user) {
+		if (user) {
+			// User is signed in.
+			var displayName = user.displayName;
+			var email = user.email;
+			var emailVerified = user.emailVerified;
+			var photoURL = user.photoURL;
+			var isAnonymous = user.isAnonymous;
+			var uid = user.uid;
+			var providerData = user.providerData;
+      console.log(displayName + " " + email);
+      $("#atw-btn").bind("click",function(event){
+          event.preventDefault();
+    console.log($(event.target.href))
+    
+    console.log(user.uid)
+    firebase.database().ref('users/'+user.uid).push({
+      videoid:`http://www.youtube.com/watch?v=${q[1]}`
+
+        })
+      window.alert("Added to watchlist successfully");
+      });
+      
+		}
+		// [END_EXCLUDE]
+		else {
+      $("#atw-btn").prop("disabled",true);
+        
+		}
+
+	});
+  
+        </script>
+</html>

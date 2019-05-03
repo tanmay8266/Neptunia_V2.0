@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cssstyling.css">
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="logout.js"></script> -->
+	<title>Results</title>
+</head>
+<body>
+	<script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+        } 
+      else {
+        x.className = "topnav";
+        }
+      }
+		function getTitle(videoid,cap){
+            var xhttp1= new XMLHttpRequest();
+            xhttp1.onreadystatechange = function(){
+                if(this.readyState==4 && this.status== 200){
+                    var myob=JSON.parse(this.responseText);
+                    var haathi=myob.items[0].snippet.title;
+                    document.getElementById(cap).innerHTML=haathi;
+        }
+    };
+    xhttp1.open("GET",`https://www.googleapis.com/youtube/v3/videos?id=${videoid}&key=AIzaSyDdD_Q_6M_3t4fJ3-yLo5reUqr9w1Nqlq0&part=snippet`,true);
+            xhttp1.send();
+        }
+		function abc(){
+  	var queryString=decodeURIComponent(window.location.search);
+	queryString = queryString.substring(1);
+	q=queryString.split("=");
+	var xhttp2= new XMLHttpRequest();
+  xhttp2.onreadystatechange = function(){
+    if(this.readyState==4 && this.status== 200){
+         myob1=JSON.parse(this.responseText); 
+         var vidid=[myob1.items[0].id.videoId,
+                    myob1.items[1].id.videoId,
+                    myob1.items[2].id.videoId,
+                    myob1.items[3].id.videoId,
+                   	myob1.items[4].id.videoId,
+                    myob1.items[5].id.videoId,
+                    myob1.items[6].id.videoId,
+                    myob1.items[7].id.videoId,
+                    myob1.items[8].id.videoId,
+                    myob1.items[9].id.videoId,
+                    myob1.items[10].id.videoId,
+                    myob1.items[11].id.videoId];
+          document.getElementById("vid0").src=`http://img.youtube.com/vi/${vidid[0]}/0.jpg`;
+          document.getElementById("vid1").src=`http://img.youtube.com/vi/${vidid[1]}/0.jpg`;
+          document.getElementById("vid2").src=`http://img.youtube.com/vi/${vidid[2]}/0.jpg`;
+          document.getElementById("vid3").src=`http://img.youtube.com/vi/${vidid[3]}/0.jpg`;
+          document.getElementById("vid4").src=`http://img.youtube.com/vi/${vidid[4]}/0.jpg`;
+          document.getElementById("vid5").src=`http://img.youtube.com/vi/${vidid[5]}/0.jpg`;
+          document.getElementById("vid6").src=`http://img.youtube.com/vi/${vidid[6]}/0.jpg`;
+          document.getElementById("vid7").src=`http://img.youtube.com/vi/${vidid[7]}/0.jpg`;
+          document.getElementById("vid8").src=`http://img.youtube.com/vi/${vidid[8]}/0.jpg`;
+          document.getElementById("vid9").src=`http://img.youtube.com/vi/${vidid[9]}/0.jpg`;
+          document.getElementById("vid10").src=`http://img.youtube.com/vi/${vidid[10]}/0.jpg`;
+          document.getElementById("vid11").src=`http://img.youtube.com/vi/${vidid[11]}/0.jpg`;
+          document.getElementById("anc0").href=`playpage.html?query=${vidid[0]}`;
+          document.getElementById("anc1").href=`playpage.html?query=${vidid[1]}`;
+          document.getElementById("anc2").href=`playpage.html?query=${vidid[2]}`;
+          document.getElementById("anc3").href=`playpage.html?query=${vidid[3]}`;
+          document.getElementById("anc4").href=`playpage.html?query=${vidid[4]}`;
+          document.getElementById("anc5").href=`playpage.html?query=${vidid[5]}`;
+          document.getElementById("anc6").href=`playpage.html?query=${vidid[6]}`;
+          document.getElementById("anc7").href=`playpage.html?query=${vidid[7]}`;
+          document.getElementById("anc8").href=`playpage.html?query=${vidid[8]}`;
+          document.getElementById("anc9").href=`playpage.html?query=${vidid[9]}`;
+          document.getElementById("anc10").href=`playpage.html?query=${vidid[10]}`;
+          document.getElementById("anc11").href=`playpage.html?query=${vidid[11]}`;
+       	  getTitle(vidid[0],"cap0");
+          getTitle(vidid[1],"cap1");
+          getTitle(vidid[2],"cap2");
+          getTitle(vidid[3],"cap3");
+          getTitle(vidid[4],"cap4");
+          getTitle(vidid[5],"cap5");
+          getTitle(vidid[6],"cap6");
+          getTitle(vidid[7],"cap7");
+          getTitle(vidid[8],"cap8");
+          getTitle(vidid[9],"cap9");
+          getTitle(vidid[10],"cap10");
+          getTitle(vidid[11],"cap11");
+
+}
+  };
+    xhttp2.open("GET",`https://www.googleapis.com/youtube/v3/search?part=id&q=${q[1]}&type=video&key=AIzaSyDdD_Q_6M_3t4fJ3-yLo5reUqr9w1Nqlq0&maxResults=20`,true);
+            xhttp2.send();
+        }
+        window.onload=abc;
+        function heh()
+{
+  search1=document.getElementById("search").value;
+   var querystring= "?query=" + search1;
+   window.location.href="aftersearch.html" + querystring;
+   
+        }
+    </script>
+  <body class="playbody">
+      <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top navbar-default">
+    
+              <a class="navbar-brand" href="index.html">Neptunia</a>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" onkeydown = "if (event.keyCode == 13){heh();}" aria-label="Search">
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" id="log-btn" type="button">Logout</button> -->
+              <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navb"> -->
+                    <ul class="navbar-nav mr-auto">
+          </ul>
+          <!-- <ul class="inline my-2 my-lg-0">
+              <li class="nav-item dropdown" style="float: right">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="https://img.icons8.com/color/48/000000/administrator-male.png" style="width:24px;height:24px;">
+                  </a>
+                  <div class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-white bg-dark" href="#">Profile</a>
+                    <a id="log-btn" class="dropdown-item text-white bg-dark" href="#">Logout</a>
+                </li>
+          </ul> -->
+          
+      </nav>
+    <div class="results">
+     <div class="img1" >
+    <figure>
+    <a class="login" id="anc0" href="http://www.google.com" title="Login"><img id="vid0" src="about:blank" width="200" height="150" class="vid1">
+    <figcaption id="cap0">
+    </figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1" >
+    <figure>
+    <a href="https://www.google.com" id="anc1" class="login" title="Login"><img src="about:blank" id="vid1" width="200" height="150" class="vid1">
+    <figcaption id="cap1">
+    </figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc2" href="www.google.com" class="login" title="Login"><img src="about:blank" id="vid2" width="200" height="150" class="vid1">
+    <figcaption id="cap2"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc3" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid3" width="200" height="150" class="vid1">
+    <figcaption id="cap3"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc4" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid4" width="200" height="150" class="vid1">
+    <figcaption id="cap4"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc5" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid5" width="200" height="150" class="vid1">
+    <figcaption id="cap5"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc6" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid6" width="200" height="150" class="vid1">
+    <figcaption id="cap6"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc7" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid7" width="200" height="150" class="vid1">
+    <figcaption id="cap7"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc8" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid8" width="200" height="150" class="vid1">
+    <figcaption id="cap8"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc9" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid9" width="200" height="150" class="vid1">
+    <figcaption id="cap9"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc10" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid10" width="200" height="150" class="vid1">
+    <figcaption id="cap10"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+    <div class="img1">
+    <figure>
+    <a id="anc11" href="https://www.google.com" class="login" title="Login"><img src="about:blank" id="vid11" width="200" height="150" class="vid1">
+    <figcaption id="cap11"></figcaption>
+    </a>
+    </figure>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cssstyling.css">
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+    function heh()
+{
+  search1=document.getElementById("search").value;
+   var querystring= "?query=" + search1;
+   console.log("aftersearch.html" + querystring);
+   window.location.href="aftersearch.html" + querystring;
+
+   
+        }
+
+
+      </script>
+    <!-- <script type="text/javascript" src="logout.js"></script> -->
+  
+	<title>Welcome to the home page</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times" aria-hidden="true"></i></a>
+        <a class="dropdown-item category" href="#">Home</a>
+        <a class="dropdown-item category" href="#">Trending</a>
+        <a class="dropdown-item category" href="#">Music</a>
+        <a class="dropdown-item category" href="#">Animation</a>
+        <a class="dropdown-item category" href="#">Automobilia</a>
+        <a class="dropdown-item category" href="#">Science</a>
+        <a class="dropdown-item category" href="#">Technology</a>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top navbar-default">
+      <span style="font-size:30px;cursor:pointer;margin-right:2%" onclick="openNav()"><img src="https://img.icons8.com/office/26/000000/menu.png"></i></span>
+          <a class="navbar-brand" href="javascript:void(0)">Neptunia</a>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" onkeydown = "if (event.keyCode == 13){heh();}" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" id="login-btn" type="button">Login</button>
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" id="log-btn" type="button">Logout</button> -->
+          <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navb"> -->
+                <ul class="navbar-nav mr-auto">
+      </ul>
+      <!-- <ul class="inline my-2 my-lg-0">
+          <li class="nav-item dropdown" style="float: right">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="https://img.icons8.com/color/48/000000/administrator-male.png" style="width:24px;height:24px;">
+              </a>
+              <div class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
+                <a class="dropdown-item text-white bg-dark" href="#">Profile</a>
+                <a id="log-btn" class="dropdown-item text-white bg-dark" href="#">Logout</a>
+            </li>
+      </ul> -->
+      
+  </nav>
+<div class="row" id="row_of_carousel">
+  <div class="col-sm bg-dark  ">
+   <div class="bd-example">
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="">
+            <img class="w-100" src=""  alt="..." style="height: 400px;">
+            </a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <a>
+              <img class="w-100" src=""  alt="..." style="height: 400px;">
+            </a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+           
+            </div>
+          </div>
+          
+          <div class="carousel-item" >
+            <a>
+            <img class="w-100" src=""  alt="..." style="height: 400px;">
+          </a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+             
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+    <br>
+    <hr class="style-four">
+    <br>
+</body>
+<!-- <script>
+    var config = {
+    apiKey: "AIzaSyBwsAGzY7oZr-zoQJj1GkqFKcNHbL3p7V0",
+    authDomain: "video-stream-bfc99.firebaseapp.com",
+    databaseURL: "https://video-stream-bfc99.firebaseio.com",
+    projectId: "video-stream-bfc99",
+    storageBucket: "video-stream-bfc99.appspot.com",
+    messagingSenderId: "63189921909"
+    };
+    firebase.initializeApp(config);
+    
+ </script> -->
+ <script src="mainpage.js"></script>
+</html>
